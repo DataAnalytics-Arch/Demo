@@ -304,7 +304,7 @@ var SPARKLINES = {
   sa: [9.1, 9.4, 9.8, 10.3, 10.8, 11.4]
 };
 
-// ─── YTD DATA (always available — built from all confirmed prior periods) ────
+// ─── YTD DATA (always available - built from all confirmed prior periods) ────
 // YTD figures exist for ALL markets regardless of current-period landing status.
 // They represent confirmed cumulative data through the last fully closed period (P05).
 // When current period lands, YTD updates to include P06. Until then, YTD = P01–P05.
@@ -459,7 +459,7 @@ function getMarketYTD(marketId, currentPeriodLanded) {
   };
 }
 
-// Compute group YTD — ALL 10 markets always contribute (YTD never waits)
+// Compute group YTD - ALL 10 markets always contribute (YTD never waits)
 function computeGroupYTD(day) {
   var ytdValue = 0,
     ytdValueYA = 0,
@@ -527,10 +527,10 @@ function statusColor(s) {
 }
 function fmt(n) {
   var decimals = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-  return n == null ? '—' : n.toFixed(decimals);
+  return n == null ? '-' : n.toFixed(decimals);
 }
 function fmtM(n) {
-  return n == null ? '—' : n >= 1000 ? (n / 1000).toFixed(1) + 'B' : n.toFixed(1) + 'M';
+  return n == null ? '-' : n >= 1000 ? (n / 1000).toFixed(1) + 'B' : n.toFixed(1) + 'M';
 }
 function pctChange(curr, ya) {
   return (curr - ya) / ya * 100;
@@ -623,7 +623,7 @@ function computeKPIs(day) {
   var pricePerUnitYA = priceNumYA / priceDenYA;
   var sppdYA = valueSalesYAForSppd * 1e6 / sppdDenYA;
 
-  // Value share — weighted avg across landed markets
+  // Value share - weighted avg across landed markets
   var vsShare = 0;
   var _iterator4 = _createForOfIteratorHelper(landed),
     _step4;
@@ -1242,7 +1242,7 @@ function GenieResponse(_ref6) {
       q: 'Show me KPIs for landed markets only, excluding pending'
     });
     prompts.push({
-      label: 'YTD — all markets',
+      label: 'YTD - all markets',
       q: 'Show YTD value sales for all 10 markets including those still pending'
     });
   }
@@ -1267,9 +1267,9 @@ function GenieResponse(_ref6) {
       return m.short;
     }).join(', '), ".") : ''), "".concat(allPending.length, " markets still pending: ").concat(pendingNames, ". ").concat(highPending.length > 0 ? "High-weight: ".concat(highPending.map(function (m) {
       return "".concat(m.name, " (").concat((m.weight * 100).toFixed(0), "%)");
-    }).join(', '), " \u2014 these can materially move the group figure.") : 'No high-weight markets pending — drift risk is low.', " ").concat(lowerPending.length > 0 ? "Lower-weight also pending: ".concat(lowerPending.map(function (m) {
+    }).join(', '), " \u2014 these can materially move the group figure.") : 'No high-weight markets pending - drift risk is low.', " ").concat(lowerPending.length > 0 ? "Lower-weight also pending: ".concat(lowerPending.map(function (m) {
       return m.name;
-    }).join(', '), ".") : ''), "Maximum drift on current provisional figure: \xB1".concat(driftEstimate, "pp. Calculated as pending high-weight (").concat((highWeight * 100).toFixed(0), "%) \xD7 historical 90th-percentile variance (\xB18% based on prior 6 periods). This is based on prior-period variance, not current month. ").concat(highPending.length === 0 ? 'No high-weight markets pending — drift risk is low.' : "Driven by ".concat(highPending.map(function (m) {
+    }).join(', '), ".") : ''), "Maximum drift on current provisional figure: \xB1".concat(driftEstimate, "pp. Calculated as pending high-weight (").concat((highWeight * 100).toFixed(0), "%) \xD7 historical 90th-percentile variance (\xB18% based on prior 6 periods). This is based on prior-period variance, not current month. ").concat(highPending.length === 0 ? 'No high-weight markets pending - drift risk is low.' : "Driven by ".concat(highPending.map(function (m) {
       return m.name;
     }).join(' and '), " still outstanding.")), "Landed markets only (".concat(landed.map(function (m) {
       return m.short;
