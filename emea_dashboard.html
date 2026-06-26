@@ -780,7 +780,7 @@ function KPICard(_ref2) {
       color: '#D0DCE8',
       marginBottom: 4
     }
-  }, "\u2014") : /*#__PURE__*/React.createElement("div", {
+  }, "-") : /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'baseline',
@@ -945,7 +945,7 @@ function ContribBar(_ref3) {
         background: 'rgba(255,255,255,0.08)',
         display: 'inline-block'
       }
-    }), m.short, " \u2014");
+    }), m.short, " -");
   })));
 }
 
@@ -1250,24 +1250,24 @@ function GenieResponse(_ref6) {
   // ── Build response text ──
   var buildResponse = function buildResponse(promptIdx) {
     if (landed.length === 0) {
-      var _responses = ["No data has landed yet. Based on historical release patterns: UK expected D+2, Germany D+3, France D+4. Reporting window opened ".concat(day, " day(s) ago."), "Last confirmed period (P05): EMEA group value sales \u20AC2,292M (\u25B24.8% vs YA). All 10 markets confirmed. Safe to use for reporting.", "YTD through P05 (all markets confirmed): EMEA group \u20AC2,292M (\u25B25.3% vs YA). P06 not yet included \u2014 current period still pending for all markets."];
+      var _responses = ["No data has landed yet. Based on historical release patterns: UK expected D+2, Germany D+3, France D+4. Reporting window opened ".concat(day, " day(s) ago."), "Last confirmed period (P05): EMEA group value sales \u20AC2,292M (\u25B24.8% vs YA). All 10 markets confirmed. Safe to use for reporting.", "YTD through P05 (all markets confirmed): EMEA group \u20AC2,292M (\u25B25.3% vs YA). P06 not yet included - current period still pending for all markets."];
       return _responses[promptIdx] || _responses[0];
     }
     if (completeness >= 0.98) {
-      var _responses2 = ["EMEA MBR P06 confirmed \u2014 all 10 markets. Value sales \u20AC".concat(fmt(kpis.valueSales), "M (").concat(pctArrow(pctChange(kpis.valueSales, kpis.valueSalesYA))).concat(Math.abs(pctChange(kpis.valueSales, kpis.valueSalesYA)).toFixed(1), "% vs YA). Volume ").concat(fmt(kpis.volSales), "M units (").concat(pctArrow(pctChange(kpis.volSales, kpis.volSalesYA))).concat(Math.abs(pctChange(kpis.volSales, kpis.volSalesYA)).toFixed(1), "% vs YA). Wtd distribution ").concat(fmt(kpis.wtdDist), "%. Price/unit \u20AC").concat(fmt(kpis.pricePerUnit, 2), ". Value share ").concat(fmt(kpis.valueShare), "%. All figures confirmed \u2014 safe to publish."), "Highest value sales growth: UAE at \u25B29.3% vs YA, followed by Saudi Arabia \u25B210.7% and UK \u25B25.6%. Lowest: South Africa \u25B27.1% (but strong absolute base). All markets positive vs YA.", "Weighted distribution ".concat(fmt(kpis.wtdDist), "% vs numeric ").concat(fmt(kpis.numDist), "%. Gap of ").concat(fmt(kpis.wtdDist - kpis.numDist), "pp indicates brand is over-indexed in high-volume stores. UK highest wtd dist at 81.2%, Poland lowest at 61.4%."), "Price inflation across EMEA: \u25B2".concat(fmt(pctChange(kpis.pricePerUnit, kpis.pricePerUnitYA)), "% vs YA. Volume growth \u25B2").concat(fmt(pctChange(kpis.volSales, kpis.volSalesYA)), "% vs YA. Price-driven growth \u2014 consumers absorbing price increases but volume response is muted. Watch elasticity in ES and PL."), "Value share group avg ".concat(fmt(kpis.valueShare), "% (\u25B2").concat(fmt(kpis.valueShare - kpis.valueShareYA), "pp vs YA). UK and DE gaining share. ES and IT flat. UAE gaining strongly (+0.7pp) on distribution expansion.")];
+      var _responses2 = ["EMEA MBR P06 confirmed - all 10 markets. Value sales \u20AC".concat(fmt(kpis.valueSales), "M (").concat(pctArrow(pctChange(kpis.valueSales, kpis.valueSalesYA))).concat(Math.abs(pctChange(kpis.valueSales, kpis.valueSalesYA)).toFixed(1), "% vs YA). Volume ").concat(fmt(kpis.volSales), "M units (").concat(pctArrow(pctChange(kpis.volSales, kpis.volSalesYA))).concat(Math.abs(pctChange(kpis.volSales, kpis.volSalesYA)).toFixed(1), "% vs YA). Wtd distribution ").concat(fmt(kpis.wtdDist), "%. Price/unit \u20AC").concat(fmt(kpis.pricePerUnit, 2), ". Value share ").concat(fmt(kpis.valueShare), "%. All figures confirmed - safe to publish."), "Highest value sales growth: UAE at \u25B29.3% vs YA, followed by Saudi Arabia \u25B210.7% and UK \u25B25.6%. Lowest: South Africa \u25B27.1% (but strong absolute base). All markets positive vs YA.", "Weighted distribution ".concat(fmt(kpis.wtdDist), "% vs numeric ").concat(fmt(kpis.numDist), "%. Gap of ").concat(fmt(kpis.wtdDist - kpis.numDist), "pp indicates brand is over-indexed in high-volume stores. UK highest wtd dist at 81.2%, Poland lowest at 61.4%."), "Price inflation across EMEA: \u25B2".concat(fmt(pctChange(kpis.pricePerUnit, kpis.pricePerUnitYA)), "% vs YA. Volume growth \u25B2").concat(fmt(pctChange(kpis.volSales, kpis.volSalesYA)), "% vs YA. Price-driven growth - consumers absorbing price increases but volume response is muted. Watch elasticity in ES and PL."), "Value share group avg ".concat(fmt(kpis.valueShare), "% (\u25B2").concat(fmt(kpis.valueShare - kpis.valueShareYA), "pp vs YA). UK and DE gaining share. ES and IT flat. UAE gaining strongly (+0.7pp) on distribution expansion.")];
       return _responses2[promptIdx] || _responses2[0];
     }
     // Partial responses
     var pendingNames = allPending.map(function (m) {
       return "".concat(m.flag, " ").concat(m.name, " (D+").concat(m.lagDays, ")");
     }).join(', ');
-    var responses = ["Provisional EMEA MBR \u2014 ".concat(landed.length, "/10 markets (").concat(pct, "% value weight). Value sales \u20AC").concat(fmt(kpis.valueSales), "M (").concat(pctArrow(pctChange(kpis.valueSales, kpis.valueSalesYA))).concat(Math.abs(pctChange(kpis.valueSales, kpis.valueSalesYA)).toFixed(1), "% vs YA). Wtd distribution ").concat(fmt(kpis.wtdDist), "%. Price/unit \u20AC").concat(fmt(kpis.pricePerUnit, 2), ". ").concat(highPending.length > 0 ? "\u26A0 High-weight pending: ".concat(highPending.map(function (m) {
+    var responses = ["Provisional EMEA MBR - ".concat(landed.length, "/10 markets (").concat(pct, "% value weight). Value sales \u20AC").concat(fmt(kpis.valueSales), "M (").concat(pctArrow(pctChange(kpis.valueSales, kpis.valueSalesYA))).concat(Math.abs(pctChange(kpis.valueSales, kpis.valueSalesYA)).toFixed(1), "% vs YA). Wtd distribution ").concat(fmt(kpis.wtdDist), "%. Price/unit \u20AC").concat(fmt(kpis.pricePerUnit, 2), ". ").concat(highPending.length > 0 ? "\u26A0 High-weight pending: ".concat(highPending.map(function (m) {
       return m.name;
     }).join(', '), " (").concat((highWeight * 100).toFixed(0), "% weight).") : '', " ").concat(lowerPending.length > 0 ? "Also pending (lower weight): ".concat(lowerPending.map(function (m) {
       return m.short;
     }).join(', '), ".") : ''), "".concat(allPending.length, " markets still pending: ").concat(pendingNames, ". ").concat(highPending.length > 0 ? "High-weight: ".concat(highPending.map(function (m) {
       return "".concat(m.name, " (").concat((m.weight * 100).toFixed(0), "%)");
-    }).join(', '), " \u2014 these can materially move the group figure.") : 'No high-weight markets pending - drift risk is low.', " ").concat(lowerPending.length > 0 ? "Lower-weight also pending: ".concat(lowerPending.map(function (m) {
+    }).join(', '), " - these can materially move the group figure.") : 'No high-weight markets pending - drift risk is low.', " ").concat(lowerPending.length > 0 ? "Lower-weight also pending: ".concat(lowerPending.map(function (m) {
       return m.name;
     }).join(', '), ".") : ''), "Maximum drift on current provisional figure: \xB1".concat(driftEstimate, "pp. Calculated as pending high-weight (").concat((highWeight * 100).toFixed(0), "%) \xD7 historical 90th-percentile variance (\xB18% based on prior 6 periods). This is based on prior-period variance, not current month. ").concat(highPending.length === 0 ? 'No high-weight markets pending - drift risk is low.' : "Driven by ".concat(highPending.map(function (m) {
       return m.name;
@@ -1278,9 +1278,9 @@ function GenieResponse(_ref6) {
   };
   var borderColor = landed.length === 0 ? 'rgba(0,155,141,0.2)' : completeness >= 0.98 ? 'rgba(67,170,139,0.3)' : 'rgba(0,155,141,0.2)';
   var stateColor = landed.length === 0 ? '#F4A261' : completeness >= 0.98 ? '#43AA8B' : '#009B8D';
-  var stateLabel = landed.length === 0 ? 'AWAITING' : completeness >= 0.98 ? "COMPLETE \u2713 \u2014 10/10" : "PARTIAL \u2014 ".concat(landed.length, "/10");
+  var stateLabel = landed.length === 0 ? 'AWAITING' : completeness >= 0.98 ? "COMPLETE \u2713 - 10/10" : "PARTIAL - ".concat(landed.length, "/10");
   return /*#__PURE__*/React.createElement("div", null, explainer === 'wtd' && /*#__PURE__*/React.createElement(Explainer, {
-    title: "Weighted Distribution \u2014 what it means and why it's AVG not SUM",
+    title: "Weighted Distribution - what it means and why it's AVG not SUM",
     onClose: function onClose() {
       return setExplainer(null);
     }
@@ -1300,7 +1300,7 @@ function GenieResponse(_ref6) {
     style: {
       color: '#1A2B3C'
     }
-  }, "Weighted Distribution"), " = % of ", /*#__PURE__*/React.createElement("em", null, "category sales value"), " that happens in stores stocking your product. Those 68 stores might account for 77% of all cola sold \u2014 because the stores carrying you are the big-volume ones (hypermarkets, major multiples). The 32 stores not stocking you are small kiosks with tiny category turnover."), /*#__PURE__*/React.createElement("p", {
+  }, "Weighted Distribution"), " = % of ", /*#__PURE__*/React.createElement("em", null, "category sales value"), " that happens in stores stocking your product. Those 68 stores might account for 77% of all cola sold - because the stores carrying you are the big-volume ones (hypermarkets, major multiples). The 32 stores not stocking you are small kiosks with tiny category turnover."), /*#__PURE__*/React.createElement("p", {
     style: {
       marginBottom: 12
     }
@@ -1308,7 +1308,7 @@ function GenieResponse(_ref6) {
     style: {
       color: '#1A2B3C'
     }
-  }, "Why the gap matters:"), " 50% numeric but 80% weighted = you're absent from small shops but present in all major volume stores \u2014 a strong position. 80% numeric but 50% weighted = you're in lots of small stores but missing the major supermarkets \u2014 a real distribution problem even though the store count looks fine."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", {
+  }, "Why the gap matters:"), " 50% numeric but 80% weighted = you're absent from small shops but present in all major volume stores - a strong position. 80% numeric but 50% weighted = you're in lots of small stores but missing the major supermarkets - a real distribution problem even though the store count looks fine."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", {
     style: {
       color: '#1A2B3C'
     }
@@ -1325,7 +1325,7 @@ function GenieResponse(_ref6) {
     style: {
       color: '#1A2B3C'
     }
-  }, "prior-period variance, not the current month"), " \u2014 because the current period hasn't fully landed yet."), /*#__PURE__*/React.createElement("p", {
+  }, "prior-period variance, not the current month"), " - because the current period hasn't fully landed yet."), /*#__PURE__*/React.createElement("p", {
     style: {
       marginBottom: 12
     }
@@ -1354,7 +1354,7 @@ function GenieResponse(_ref6) {
     style: {
       color: '#1A2B3C'
     }
-  }, "Why only high-weight markets trigger it:"), " Spain (9%), Netherlands (7%), Poland (6%) etc. are also pending. But even if Spain came in 10% above the provisional, the group impact is 9% \xD7 10% = 0.9pp \u2014 below the warning threshold. The warning is specifically about markets large enough to move the headline figure materially.")), explainer === 'weights' && /*#__PURE__*/React.createElement(Explainer, {
+  }, "Why only high-weight markets trigger it:"), " Spain (9%), Netherlands (7%), Poland (6%) etc. are also pending. But even if Spain came in 10% above the provisional, the group impact is 9% \xD7 10% = 0.9pp - below the warning threshold. The warning is specifically about markets large enough to move the headline figure materially.")), explainer === 'weights' && /*#__PURE__*/React.createElement(Explainer, {
     title: "How country weights are calculated",
     onClose: function onClose() {
       return setExplainer(null);
@@ -1367,7 +1367,7 @@ function GenieResponse(_ref6) {
     style: {
       color: '#1A2B3C'
     }
-  }, "last fully complete period's value sales mix"), " \u2014 the most recent period where all 10 markets have confirmed data."), /*#__PURE__*/React.createElement("div", {
+  }, "last fully complete period's value sales mix"), " - the most recent period where all 10 markets have confirmed data."), /*#__PURE__*/React.createElement("div", {
     style: {
       background: '#EEF9F8',
       border: '1px solid rgba(0,155,141,0.2)',
@@ -1387,11 +1387,11 @@ function GenieResponse(_ref6) {
     style: {
       color: '#1A2B3C'
     }
-  }, "Why the last complete period, not the current one:"), " The current partial period (where UK has landed but UAE hasn't) would make UK look artificially large \u2014 its sales are in the numerator but UAE's aren't yet. Using the last complete period gives a stable, unbiased weight."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", {
+  }, "Why the last complete period, not the current one:"), " The current partial period (where UK has landed but UAE hasn't) would make UK look artificially large - its sales are in the numerator but UAE's aren't yet. Using the last complete period gives a stable, unbiased weight."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", {
     style: {
       color: '#1A2B3C'
     }
-  }, "Weights are fixed for the entire reporting cycle"), " and only refresh once the new period is fully confirmed. This is why the weights in this console (UK 22%, DE 20% etc.) don't change as you scrub \u2014 they're anchored to P05.")), /*#__PURE__*/React.createElement("div", {
+  }, "Weights are fixed for the entire reporting cycle"), " and only refresh once the new period is fully confirmed. This is why the weights in this console (UK 22%, DE 20% etc.) don't change as you scrub - they're anchored to P05.")), /*#__PURE__*/React.createElement("div", {
     style: {
       background: '#FFFFFF',
       border: "1px solid ".concat(borderColor),
@@ -1776,7 +1776,7 @@ function App() {
       color: '#5A6E82',
       fontSize: 13
     }
-  }, "Scrub Day 0 \u2192 Day +13 \u2014 KPIs rebuild in real time as each market's data lands")), /*#__PURE__*/React.createElement("div", {
+  }, "Scrub Day 0 \u2192 Day +13 - KPIs rebuild in real time as each market's data lands")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -1894,7 +1894,7 @@ function App() {
       color: '#5A6E82',
       fontStyle: 'italic'
     }
-  }, "Period just closed \u2014 no data yet")), /*#__PURE__*/React.createElement("div", {
+  }, "Period just closed - no data yet")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 6
@@ -2021,7 +2021,7 @@ function App() {
     onClick: function onClick() {
       return setActiveTab('ytd');
     }
-  }, "YTD \u2014 All Markets"), /*#__PURE__*/React.createElement("button", {
+  }, "YTD - All Markets"), /*#__PURE__*/React.createElement("button", {
     style: tabStyle('markets'),
     onClick: function onClick() {
       return setActiveTab('markets');
@@ -2051,7 +2051,7 @@ function App() {
       fontSize: 12,
       color: '#F4A261'
     }
-  }, "Provisional \u2014 ", landed.length, "/10 markets landed (", completePct, "% value weight). KPIs will update as remaining markets arrive.")), landed.length === 0 && /*#__PURE__*/React.createElement("div", {
+  }, "Provisional - ", landed.length, "/10 markets landed (", completePct, "% value weight). KPIs will update as remaining markets arrive.")), landed.length === 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       background: 'rgba(28,58,94,0.2)',
       border: '1px dashed rgba(28,58,94,0.6)',
@@ -2147,7 +2147,7 @@ function App() {
     color: "#F9C74F",
     isProvisional: isProvisional,
     format: "dec",
-    tooltip: "Average Products Per Store \u2014 depth of range"
+    tooltip: "Average Products Per Store - depth of range"
   }), /*#__PURE__*/React.createElement(KPICard, {
     label: "SPPD",
     value: kpis ? kpis.sppd / 1000 : null,
@@ -2156,7 +2156,7 @@ function App() {
     color: "#F9C74F",
     isProvisional: isProvisional,
     format: "dec",
-    tooltip: "Sales Per Point of Distribution \u2014 velocity"
+    tooltip: "Sales Per Point of Distribution - velocity"
   })), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
@@ -2255,7 +2255,7 @@ function App() {
         color: '#009B8D',
         marginBottom: 4
       }
-    }, "YTD is always available \u2014 for every market, regardless of current period status"), /*#__PURE__*/React.createElement("div", {
+    }, "YTD is always available - for every market, regardless of current period status"), /*#__PURE__*/React.createElement("div", {
       style: {
         fontSize: 12,
         color: '#5A6E82',
@@ -2278,7 +2278,7 @@ function App() {
         letterSpacing: '0.1em',
         marginBottom: 10
       }
-    }, "Group YTD \u2014 All 10 Markets \xB7 ", gYTD.periodsNote), /*#__PURE__*/React.createElement("div", {
+    }, "Group YTD - All 10 Markets \xB7 ", gYTD.periodsNote), /*#__PURE__*/React.createElement("div", {
       className: "kpi-grid",
       style: {
         display: 'grid',
@@ -2363,13 +2363,13 @@ function App() {
         letterSpacing: '0.1em',
         marginBottom: 4
       }
-    }, "Per-Market YTD \u2014 All Markets Always Visible"), /*#__PURE__*/React.createElement("div", {
+    }, "Per-Market YTD - All Markets Always Visible"), /*#__PURE__*/React.createElement("div", {
       style: {
         fontSize: 11,
         color: '#5A6E82',
         marginBottom: 14
       }
-    }, "\uD83D\uDFE2 P0", YTD_PERIODS + 1, " included \xA0\xB7\xA0 \uD83D\uDFE1 P0", YTD_PERIODS + 1, " pending \u2014 YTD shows P01\u2013P0", YTD_PERIODS, " only \xA0\xB7\xA0 YTD never blank; prior periods always confirmed"), /*#__PURE__*/React.createElement("div", {
+    }, "\uD83D\uDFE2 P0", YTD_PERIODS + 1, " included \xA0\xB7\xA0 \uD83D\uDFE1 P0", YTD_PERIODS + 1, " pending - YTD shows P01\u2013P0", YTD_PERIODS, " only \xA0\xB7\xA0 YTD never blank; prior periods always confirmed"), /*#__PURE__*/React.createElement("div", {
       style: {
         overflowX: 'auto'
       }
@@ -2613,7 +2613,7 @@ function App() {
         color: '#5A6E82',
         lineHeight: 1.7
       }
-    }, "All 10 markets show YTD through P0", YTD_PERIODS, ". Group YTD is complete for prior periods. Stakeholders can see the full year-to-date picture instantly \u2014 no waiting.")), /*#__PURE__*/React.createElement("div", {
+    }, "All 10 markets show YTD through P0", YTD_PERIODS, ". Group YTD is complete for prior periods. Stakeholders can see the full year-to-date picture instantly - no waiting.")), /*#__PURE__*/React.createElement("div", {
       style: {
         background: 'rgba(244,162,97,0.06)',
         border: '1px solid rgba(244,162,97,0.15)',
@@ -2633,7 +2633,7 @@ function App() {
         color: '#5A6E82',
         lineHeight: 1.7
       }
-    }, "Landed markets upgrade to P01\u2013P0", YTD_PERIODS + 1, " YTD. Pending markets hold at P01\u2013P0", YTD_PERIODS, ". The \uD83D\uDFE1 badge shows which markets are still on prior-period YTD. Group total blends both \u2014 noted in the coverage line.")), /*#__PURE__*/React.createElement("div", {
+    }, "Landed markets upgrade to P01\u2013P0", YTD_PERIODS + 1, " YTD. Pending markets hold at P01\u2013P0", YTD_PERIODS, ". The \uD83D\uDFE1 badge shows which markets are still on prior-period YTD. Group total blends both - noted in the coverage line.")), /*#__PURE__*/React.createElement("div", {
       style: {
         background: 'rgba(67,170,139,0.06)',
         border: '1px solid rgba(67,170,139,0.15)',
@@ -2671,7 +2671,7 @@ function App() {
       letterSpacing: '0.1em',
       marginBottom: 14
     }
-  }, "All Markets \u2014 ", landed.length, " landed, ", MARKETS.length - landed.length, " pending"), /*#__PURE__*/React.createElement(MarketTable, {
+  }, "All Markets - ", landed.length, " landed, ", MARKETS.length - landed.length, " pending"), /*#__PURE__*/React.createElement(MarketTable, {
     perMarket: perMarket
   })), /*#__PURE__*/React.createElement("div", {
     style: {
